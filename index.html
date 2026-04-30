@@ -4,648 +4,269 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WaC-13 @ EMNLP 2026</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --ink: #0f0e0c;
-      --paper: #f8f5ef;
-      --cream: #ede9df;
-      --accent: #b5400f;
-      --accent-light: #e8c9bc;
-      --gold: #c9a84c;
-      --rule: #c8c2b4;
-      --muted: #6b6356;
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
-
     body {
-      background: var(--paper);
-      color: var(--ink);
+      background: #fff;
+      color: #111;
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      background: var(--ink);
-    }
-
-    .hero-image-slot {
-      position: absolute;
-      inset: 0;
-      background: url('img/budapest_02.jpeg') center/cover no-repeat;
-    }
-
-    .hero-image-slot::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,14,12,0.92) 30%, rgba(15,14,12,0.45) 100%);
-    }
-
-    .hero-grain {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-    }
-
-    .hero-rule {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 4rem clamp(1.5rem, 6vw, 6rem) 4rem;
-    }
-
-    /* Logo slot in top-left */
-    .logo-row {
-      position: absolute;
-      top: 2.5rem;
-      left: clamp(1.5rem, 6vw, 6rem);
-      right: clamp(1.5rem, 6vw, 6rem);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      z-index: 3;
-    }
-
-    .logo-slot {
-      width: 52px;
-      height: 52px;
-      border: 1.5px solid rgba(201,168,76,0.4);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.05);
-      color: var(--gold);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6rem;
-      text-align: center;
-      line-height: 1.3;
-      padding: 4px;
-      opacity: 0.7;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      /* Replace with: background: url('logo.png') center/contain no-repeat; */
-    }
-    .logo-slot:hover { opacity: 1; }
-
-    .logo-label {
-      color: rgba(248,245,239,0.45);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 2rem;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 1.08;
-      color: var(--paper);
-      max-width: 14ch;
-      margin-bottom: 1rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent-light);
-    }
-
-    .hero-subtitle {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: clamp(0.8rem, 1.5vw, 1rem);
-      color: rgba(248,245,239,0.6);
-      letter-spacing: 0.05em;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      border-top: 1px solid rgba(201,168,76,0.25);
-      padding-top: 2rem;
-    }
-
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .hero-meta-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(248,245,239,0.4);
-    }
-
-    .hero-meta-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--paper);
-    }
-
-    /* ── MAIN LAYOUT ── */
-    main {
-      max-width: 860px;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 780px;
       margin: 0 auto;
-      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 2rem);
+      padding: 0 1.5rem;
     }
 
-    section { margin-bottom: 4rem; }
-
-    .section-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-      color: var(--ink);
-    }
-
-    p {
-      color: #2b2820;
-      font-weight: 300;
-      margin-bottom: 1.1rem;
-      font-size: 1.05rem;
-    }
-
-    p:last-child { margin-bottom: 0; }
-
-    /* ── IMAGE PLACEHOLDER ── */
-    .image-placeholder {
-      width: 100%;
-      height: 260px;
-      background: var(--cream);
-      border: 1.5px dashed var(--rule);
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--muted);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      /* Replace with: background: url('budapest2.jpg') center/cover no-repeat; border: none; */
-    }
-
-    .image-placeholder-icon {
-      font-size: 2rem;
-      opacity: 0.35;
-    }
-
-    /* ── TOPICS ── */
-    .topics-grid {
-      display: grid;
-      gap: 0;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 1.5rem;
-    }
-
-    .topic-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.1rem 1.4rem;
-      border-bottom: 1px solid var(--rule);
-      transition: background 0.15s;
-    }
-
-    .topic-item:last-child { border-bottom: none; }
-    .topic-item:hover { background: var(--cream); }
-
-    .topic-bullet {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 0.55rem;
-      flex-shrink: 0;
-    }
-
-    .topic-text {
-      font-size: 0.97rem;
-      color: #2b2820;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    /* ── DATES TABLE ── */
-    .dates-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1.5rem;
-      font-size: 0.97rem;
-    }
-
-    .dates-table tr {
-      border-bottom: 1px solid var(--rule);
-      transition: background 0.15s;
-    }
-
-    .dates-table tr:first-child { border-top: 1px solid var(--rule); }
-    .dates-table tr:hover { background: var(--cream); }
-
-    .dates-table td {
-      padding: 0.9rem 0.5rem;
-      vertical-align: top;
-    }
-
-    .dates-table td:first-child {
-      color: #2b2820;
-      font-weight: 300;
-      padding-right: 2rem;
-      width: 65%;
-    }
-
-    .dates-table td:last-child {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      color: var(--accent);
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    .date-highlight td:last-child {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .date-conference td:first-child {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--ink);
-    }
-    .date-conference td:last-child {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--gold);
-    }
-
-    /* ── ORGANIZERS ── */
-    .organizers-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      margin-top: 1.5rem;
-    }
-
-    .organizer-card {
-      background: var(--cream);
-      padding: 1.2rem 1.5rem;
-      border-left: 3px solid var(--accent);
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .organizer-card:hover {
-      background: var(--accent-light);
-      border-color: var(--ink);
-    }
-
-    .organizer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .organizer-affil {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-top: 0.2rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem clamp(1.5rem, 6vw, 6rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: var(--cream);
-    }
-
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    .footer-note {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--rule);
-      text-transform: uppercase;
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248,245,239,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 clamp(1.5rem, 6vw, 6rem);
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 52px;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1.4rem 0 1.2rem;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
     }
 
     .nav-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--ink);
+      color: #111;
+      text-decoration: none;
+      margin-right: auto;
+    }
+
+    nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: #555;
       text-decoration: none;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
+    nav a:hover { color: #111; text-decoration: underline; }
+
+    /* HEADINGS */
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.18;
+      margin-bottom: 0.6rem;
+    }
+
+    .subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    /* TEXT */
+    p {
+      color: #222;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    a { color: #1a6bc4; }
+    a:hover { text-decoration: none; }
+
+    /* DATES */
+    ul.dates {
       list-style: none;
+      margin: 0.5rem 0 1.5rem;
     }
 
-    .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
+    ul.dates li {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.97rem;
+      align-items: baseline;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    ul.dates li:first-child { border-top: 1px solid #eee; }
 
-    /* ── FADE IN ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    ul.dates .date-label {
+      color: #222;
+      flex: 1;
     }
 
-    .hero-content > * {
-      animation: fadeUp 0.7s ease both;
+    ul.dates .date-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: #555;
+      white-space: nowrap;
     }
-    .logo-row { animation: fadeUp 0.5s ease both; }
-    .eyebrow  { animation-delay: 0.1s; }
-    h1        { animation-delay: 0.2s; }
-    .hero-subtitle { animation-delay: 0.3s; }
-    .hero-meta     { animation-delay: 0.4s; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-meta { gap: 1.2rem; }
+    ul.dates li.conf .date-label { font-style: italic; }
+    ul.dates li.conf .date-val { color: #111; font-weight: 500; }
+
+    /* TOPICS */
+    ul.topics {
+      margin: 0.5rem 0 1rem 0;
+      padding-left: 1.2rem;
+    }
+
+    ul.topics li {
+      margin-bottom: 0.4rem;
+      font-size: 0.97rem;
+      color: #222;
+    }
+
+    /* ORGANIZERS */
+    .org-list {
+      margin: 0.5rem 0;
+    }
+
+    .org-item {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.97rem;
+    }
+
+    .org-item:first-child { border-top: 1px solid #eee; }
+
+    .org-name { font-weight: 600; }
+
+    .org-affil {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: #777;
+    }
+
+    section { margin-bottom: 3rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.5rem 0 2.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: #aaa;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 520px) {
+      nav { gap: 1rem; }
+      ul.dates li { flex-direction: column; gap: 0.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── STICKY NAV ── -->
   <nav>
-    <a href="#" class="nav-brand">WaC-13 · EMNLP 2026</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#topics">Topics</a></li>
-      <li><a href="#dates">Dates</a></li>
-      <li><a href="#organizers">Organizers</a></li>
-    </ul>
+    <a href="#" class="nav-brand">
+      <img src="img/emnlp_2026_logo.png" alt="EMNLP 2026" style="height:28px; width:auto; vertical-align:middle; margin-right:0.5rem;" />
+      WaC-13 · EMNLP 2026
+    </a>
+    <a href="#about">About</a>
+    <a href="#topics">Topics</a>
+    <a href="#dates">Dates</a>
+    <a href="#organizers">Organizers</a>
   </nav>
 
-  <!-- ── HERO ── -->
-  <header class="hero">
-    <div class="hero-image-slot"></div>
-    <div class="hero-grain"></div>
-    <div class="hero-rule"></div>
+  <img src="img/budapest_02.jpeg" alt="Budapest" style="width:100%; height:260px; object-fit:cover; display:block; margin-bottom:2rem;" />
 
-    <!-- Logo slots top-left — replace .logo-slot with <img> tags -->
-    <div class="logo-row">
-      <img src="img/emnlp_2026_logo.png" alt="EMNLP 2026" style="height:52px; width:auto;" />
-      <span class="logo-label">Workshop @ EMNLP 2026</span>
-    </div>
+  <h1>13th Web-as-Corpus Workshop</h1>
+  <p class="subtitle">Workshop @ EMNLP 2026 · Budapest, Hungary · 24–29 October 2026</p>
 
-    <div class="hero-content">
-      <p class="eyebrow">13th Web-as-Corpus Workshop</p>
-      <h1>Web-as-<em>Corpus</em><br>Workshop</h1>
-      <p class="hero-subtitle">@EMNLP 2026 · Budapest, Hungary</p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Edition</span>
-          <span class="hero-meta-value">WaC-13</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Venue</span>
-          <span class="hero-meta-value">Budapest, Hungary</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Conference</span>
-          <span class="hero-meta-value">24 – 29 Oct, 2026</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Submission Deadline</span>
-          <span class="hero-meta-value">7 Aug, 2026</span>
-        </div>
+  <section id="about">
+    <p>This is the website of the 13th edition of the Web-as-Corpus (WaC-13) workshop at <a href="#">EMNLP 2026</a>.</p>
+
+    <h2>Call for Papers</h2>
+
+    <img src="img/budapest_01.jpg" alt="Budapest" style="width:100%; height:220px; object-fit:cover; display:block; margin: 1rem 0 1.5rem;" />
+
+    <p>The World Wide Web has evolved from a resource for building linguistic corpora into the central data infrastructure powering modern natural language processing and Large Language Models (LLMs). As web-scale data increasingly shapes AI systems' knowledge and capabilities, understanding its quality, representativeness, and ethical implications has become critical.</p>
+
+    <p>At the same time, the "more is better" paradigm is being challenged by issues such as machine-generated content, data toxicity, limited metadata, and the under-representation of many languages and domains. These challenges call for a shift toward Data-Centric AI, focusing on the curation, analysis, and responsible use of web-derived data.</p>
+
+    <p>WaC-13 provides a multidisciplinary forum for research addressing the full lifecycle of web data. We invite submissions on methods, resources, and applications related to web corpora, with special emphasis on multilingual data and less-resourced languages.</p>
+  </section>
+
+  <section id="topics">
+    <h2>Topics of Interest</h2>
+    <p>Submissions are invited on (but not limited to):</p>
+    <ul class="topics">
+      <li>Creation and evaluation of high-quality datasets for foundation models (data collection, filtering, enrichment, language identification)</li>
+      <li>Use of web data in empirical linguistic research</li>
+      <li>Analysis of web-scale corpora for quality, representativeness, and societal insights</li>
+      <li>Ethical and legal aspects of collecting, sharing, and using web data</li>
+    </ul>
+  </section>
+
+  <section id="dates">
+    <h2>Important Dates</h2>
+    <ul class="dates">
+      <li>
+        <span class="date-label">Direct paper submission deadline</span>
+        <span class="date-val">7 Aug 2026</span>
+      </li>
+      <li>
+        <span class="date-label">Pre-reviewed ARR commitment deadline</span>
+        <span class="date-val">1 Sep 2026</span>
+      </li>
+      <li>
+        <span class="date-label">Notification of acceptance</span>
+        <span class="date-val">5 Sep 2026</span>
+      </li>
+      <li>
+        <span class="date-label">Camera-ready paper due</span>
+        <span class="date-val">20 Sep 2026</span>
+      </li>
+      <li class="conf">
+        <span class="date-label">Conference dates</span>
+        <span class="date-val">24–29 Oct 2026</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="organizers">
+    <h2>Workshop Organizers</h2>
+    <div class="org-list">
+      <div class="org-item">
+        <div class="org-name">Nikola Ljubešić</div>
+        <div class="org-affil">Jožef Stefan Institute</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Yves Scherrer</div>
+        <div class="org-affil">University of Oslo</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Laurie Burchell</div>
+        <div class="org-affil">Common Crawl</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Veronika Laippala</div>
+        <div class="org-affil">University of Turku</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Pedro Ortiz Saurez</div>
+        <div class="org-affil">Common Crawl</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Jen English</div>
+        <div class="org-affil">Common Crawl</div>
+      </div>
+      <div class="org-item">
+        <div class="org-name">Vuk Dinić</div>
+        <div class="org-affil">Jožef Stefan Institute</div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- ── MAIN ── -->
-  <main>
-
-    <!-- About -->
-    <section id="about">
-      <p class="section-label">Overview</p>
-      <h2>Call for Papers</h2>
-
-      <img src="img/budapest_01.jpg" alt="Budapest" style="width:100%; border-radius:4px; margin-bottom:2.5rem; display:block;" />
-
-      <p>The World Wide Web has evolved from a resource for building linguistic corpora into the central data infrastructure powering modern natural language processing and Large Language Models (LLMs). As web-scale data increasingly shapes AI systems' knowledge and capabilities, understanding its quality, representativeness, and ethical implications has become critical.</p>
-
-      <p>At the same time, the "more is better" paradigm is being challenged by issues such as machine-generated content, data toxicity, limited metadata, and the under-representation of many languages and domains. These challenges call for a shift toward Data-Centric AI, focusing on the curation, analysis, and responsible use of web-derived data.</p>
-
-      <p>The 13th Web-as-Corpus (WaC-13) workshop provides a multidisciplinary forum for research addressing the full lifecycle of web data. We invite submissions on methods, resources, and applications related to web corpora, with special emphasis on multilingual data and less-resourced languages.</p>
-
-      <p>By bringing together researchers from NLP, linguistics, and the social sciences, WaC aims to advance best practices for one of the field's most influential data sources.</p>
-    </section>
-
-    <!-- Topics -->
-    <section id="topics">
-      <p class="section-label">Scope</p>
-      <h2>Topics of Interest</h2>
-      <p>Submissions are invited on (but not limited to) the following areas:</p>
-
-      <div class="topics-grid">
-        <div class="topic-item">
-          <div class="topic-bullet"></div>
-          <span class="topic-text">Creation and evaluation of high-quality datasets for foundation models (e.g., data collection, filtering, enrichment, language identification)</span>
-        </div>
-        <div class="topic-item">
-          <div class="topic-bullet"></div>
-          <span class="topic-text">Use of web data in empirical linguistic research</span>
-        </div>
-        <div class="topic-item">
-          <div class="topic-bullet"></div>
-          <span class="topic-text">Analysis of web-scale corpora for quality, representativeness, and societal insights</span>
-        </div>
-        <div class="topic-item">
-          <div class="topic-bullet"></div>
-          <span class="topic-text">Ethical and legal aspects of collecting, sharing, and using web data</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Important Dates -->
-    <section id="dates">
-      <p class="section-label">Timeline</p>
-      <h2>Important Dates</h2>
-
-      <table class="dates-table">
-        <tbody>
-          <tr>
-            <td>Direct paper submission deadline</td>
-            <td>7 Aug 2026</td>
-          </tr>
-          <tr>
-            <td>Pre-reviewed ARR commitment deadline</td>
-            <td>1 Sep 2026</td>
-          </tr>
-          <tr>
-            <td>Notification of acceptance</td>
-            <td>5 Sep 2026</td>
-          </tr>
-          <tr>
-            <td>Camera-ready paper due</td>
-            <td>20 Sep 2026</td>
-          </tr>
-          <tr class="date-conference">
-            <td>Conference dates</td>
-            <td>24–29 Oct 2026</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Organizers -->
-    <section id="organizers">
-      <p class="section-label">Team</p>
-      <h2>Workshop Organizers</h2>
-
-      <div class="organizers-list">
-        <div class="organizer-card">
-          <div class="organizer-name">Nikola Ljubešić</div>
-          <div class="organizer-affil">Jožef Stefan Institute · Ljubljana, Slovenia</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Yves Scherrer</div>
-          <div class="organizer-affil">University of Oslo</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Laurie Burchell</div>
-          <div class="organizer-affil">Common Crawl</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Veronika Laippala</div>
-          <div class="organizer-affil">University of Turku</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Pedro Ortiz Saurez</div>
-          <div class="organizer-affil">Common Crawl</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Jen English</div>
-          <div class="organizer-affil">Common Crawl</div>
-        </div>
-        <div class="organizer-card">
-          <div class="organizer-name">Vuk Dinić</div>
-          <div class="organizer-affil">Jožef Stefan Institute · Ljubljana, Slovenia</div>
-        </div>
-      </div>
-</section>
-
-  </main>
-
-  <!-- ── FOOTER ── -->
   <footer>
-    <span class="footer-brand">WaC-13 @ EMNLP 2026</span>
-    <span class="footer-note">Budapest, Hungary · 24–29 October 2026</span>
+    WaC-13 @ EMNLP 2026 · Budapest, Hungary · 24–29 October 2026
   </footer>
 
 </body>
