@@ -386,30 +386,26 @@
     <ul class="dates">
       <li>
         <span class="date-label">Direct paper submission deadline</span>
-        <span class="date-val webDelta dateOnly noTZ">1786104000</span>
+        <span class="date-val webDelta">1786190340</span>
       </li>
       <li>
         <span class="date-label">Pre-reviewed ARR commitment deadline</span>
-        <span class="date-val webDelta dateOnly noTZ">1788264000</span>
+        <span class="date-val webDelta">1788350340</span>
       </li>
       <li>
         <span class="date-label">Notification of acceptance</span>
-        <span class="date-val webDelta dateOnly noTZ">1788609600</span>
+        <span class="date-val webDelta">1788695940</span>
       </li>
       <li>
         <span class="date-label">Camera-ready paper due</span>
-        <span class="date-val webDelta dateOnly noTZ">1789905600</span>
-      </li>
-      <li class="conf">
-        <span class="date-label">Conference dates</span>
-        <span class="date-val">24–29 Oct 2026</span>
+        <span class="date-val webDelta">1789300740</span>
       </li>
     </ul>
   </section>
 
   <section id="submission">
     <h2>Submission</h2>
-    <p>Note: All deadlines are 11:59PM "anywhere on Earth".</p>
+    <p><strong>Note:</strong> All deadlines are 11:59PM "Anywhere on Earth", and are displayed above in your local time zone for convenience. <span style="color: rgb(217,66,70)">Depending on your time zone, the displayed date may be one day later than the official deadline date.</span></p>
     <p>
       Following the <a href="https://www.aclweb.org/portal/content/report-acl-committee-anonymity-policy"
         target="_blank" rel="noreferrer nofollow noopener">ACL and ARR policies</a>, there is no anonymity period
@@ -462,7 +458,21 @@
     WaC-13 @ EMNLP 2026 · Budapest, Hungary · 24–29 October 2026
   </footer>
 
+  <script>
+  window.webDeltaConfig = {
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+  };
+  </script>
+
   <script src="https://cdn.jsdelivr.net/gh/thunderpoot/webdelta@1.0.2/dist/webdelta.min.js"></script>
+
+  <script>
+  window.webDeltaConfig.timeZone =
+    Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (window.webDeltaRenderAll) {
+    window.webDeltaRenderAll();
+  }
+  </script>
 
 </body>
 
