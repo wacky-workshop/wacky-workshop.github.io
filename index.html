@@ -213,6 +213,44 @@
       font-weight: 500;
     }
 
+    .date-tabs input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .date-tab-labels {
+      display: flex;
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .date-tab-labels label {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-bottom: 2px solid transparent;
+      user-select: none;
+    }
+
+    .date-tab-panel {
+      display: none;
+    }
+
+    #tab-local:checked~.date-tab-labels label[for="tab-local"],
+    #tab-aoe:checked~.date-tab-labels label[for="tab-aoe"] {
+      color: #111;
+      font-weight: 600;
+      border-bottom-color: rgb(217, 66, 70);
+    }
+
+    #tab-local:checked~#panel-local,
+    #tab-aoe:checked~#panel-aoe {
+      display: block;
+    }
+
     /* TOPICS */
     ul.topics {
       margin: 0.5rem 0 1rem 0;
@@ -382,44 +420,83 @@
 
   <section id="dates">
     <h2>Important Dates</h2>
-    <p style="font-style: italic">(Hover over dates to see deltas)</p>
-    <ul class="dates">
-      <li>
-        <span class="date-label">Direct paper submission deadline</span>
-        <span class="date-val webDelta aoe">2026-08-15</span>
-      </li>
-      <li>
-        <span class="date-label">Pre-reviewed ARR commitment deadline</span>
-        <span class="date-val webDelta aoe">2026-09-01</span>
-      </li>
-      <li>
-        <span class="date-label">Review submission deadline</span>
-        <span class="date-val webDelta aoe">2026-09-07</span>
-      </li>
-      <li>
-        <span class="date-label">Notification of acceptance</span>
-        <span class="date-val webDelta aoe">2026-09-10</span>
-      </li>
-      <li>
-        <span class="date-label">Camera-ready paper due</span>
-        <span class="date-val webDelta aoe">2026-09-17</span>
-      </li>
-      <li>
-        <span class="date-label">Workshop</span>
-        <span class="date-val webDelta">2026-10-29T09:00+02:00</span>
-      </li>
-      <li>
-        <span class="date-label"></span>
-        <span class="date-val">(October 29, 2026 at 9:00:00 AM Europe/Budapest)</span>
-      </li>
-    </ul>
+
+    <div class="date-tabs">
+      <input type="radio" name="date-tab" id="tab-local" checked>
+      <input type="radio" name="date-tab" id="tab-aoe">
+
+      <div class="date-tab-labels">
+        <label for="tab-local">Your Local Time</label>
+        <label for="tab-aoe">Original (AoE)</label>
+      </div>
+
+      <div class="date-tab-panel" id="panel-local">
+        <p style="font-style: italic">(Hover over dates to see deltas)</p>
+        <ul class="dates">
+          <li>
+            <span class="date-label">Direct paper submission deadline</span>
+            <span class="date-val webDelta aoe">2026-08-15</span>
+          </li>
+          <li>
+            <span class="date-label">Pre-reviewed ARR commitment deadline</span>
+            <span class="date-val webDelta aoe">2026-09-01</span>
+          </li>
+          <li>
+            <span class="date-label">Review submission deadline</span>
+            <span class="date-val webDelta aoe">2026-09-07</span>
+          </li>
+          <li>
+            <span class="date-label">Notification of acceptance</span>
+            <span class="date-val webDelta aoe">2026-09-10</span>
+          </li>
+          <li>
+            <span class="date-label">Camera-ready paper due</span>
+            <span class="date-val webDelta aoe">2026-09-17</span>
+          </li>
+          <li>
+            <span class="date-label">Workshop</span>
+            <span class="date-val webDelta">2026-10-29T09:00+02:00</span>
+          </li>
+          <li>
+            <span class="date-label"></span>
+            <span class="date-val">(October 29, 2026 at 9:00:00 AM Europe/Budapest)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="date-tab-panel" id="panel-aoe">
+        <p style="font-style: italic">All deadlines are 11:59&nbsp;PM "Anywhere on Earth" (AoE, UTC&minus;12).</p>
+        <ul class="dates">
+          <li>
+            <span class="date-label">Direct paper submission deadline</span>
+            <span class="date-val">August 15, 2026 at 11:59:59 PM AoE</span>
+          </li>
+          <li>
+            <span class="date-label">Pre-reviewed ARR commitment deadline</span>
+            <span class="date-val">September 1, 2026 at 11:59:59 PM AoE</span>
+          </li>
+          <li>
+            <span class="date-label">Review submission deadline</span>
+            <span class="date-val">September 7, 2026 at 11:59:59 PM AoE</span>
+          </li>
+          <li>
+            <span class="date-label">Notification of acceptance</span>
+            <span class="date-val">September 10, 2026 at 11:59:59 PM AoE</span>
+          </li>
+          <li>
+            <span class="date-label">Camera-ready paper due</span>
+            <span class="date-val">September 17, 2026 at 11:59:59 PM AoE</span>
+          </li>
+          <li>
+            <span class="date-label">Workshop</span>
+            <span class="date-val">October 29, 2026 at 9:00:00 AM Europe/Budapest</span>
+          </li>
+        </ul>
+      </div>
   </section>
 
   <section id="submission">
     <h2>Submission</h2>
-    <p><strong>Note:</strong> All deadlines are 11:59PM "Anywhere on Earth", and are displayed above in your local time
-      zone for convenience. <span style="color: rgb(217,66,70)">Depending on your time zone, the displayed date may be
-        one day later than the official deadline date.</span></p>
     <p>
       We invite short (4 pages) and long (8 pages) papers. We allow for archival (to appear in the <a
         href="https://aclanthology.org" target="_blank" rel="noreferrer nofollow noopener">ACL Anthology</a>) and
