@@ -318,9 +318,131 @@
       margin-top: 2rem;
     }
 
+    /* PROGRAMME */
+    .prog-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    ol.programme {
+      list-style: none;
+      margin: 0.5rem 0 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    ol.programme > li {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 0 1.25rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.97rem;
+      align-items: baseline;
+    }
+
+    .prog-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: #555;
+      white-space: nowrap;
+    }
+
+    .prog-title {
+      font-weight: 600;
+    }
+
+    .prog-detail {
+      color: #222;
+    }
+
+    ol.programme > li.break .prog-title {
+      font-weight: 400;
+      font-style: italic;
+      color: #777;
+    }
+
+    ol.programme > li.break .prog-time {
+      color: #aaa;
+    }
+
+
+    ol.talks {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    ol.talks li {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0 1rem;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .talk-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: #777;
+      line-height: 1.6;
+      padding-top: 0.15rem;
+    }
+
+    .talk-type {
+      display: block;
+      color: #aaa;
+    }
+
+    .tag-remote {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: #1a6bc4;
+      border: 1px solid #c9dcf2;
+      border-radius: 3px;
+      padding: 0 0.3rem;
+      margin-left: 0.35rem;
+      white-space: nowrap;
+      vertical-align: 1px;
+    }
+
+    ul.posters {
+      margin: 0.5rem 0 0 0;
+      padding-left: 1.2rem;
+    }
+
+    ul.posters li {
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    details.poster-list summary {
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: #1a6bc4;
+      margin-top: 0.4rem;
+    }
+
     @media (max-width: 520px) {
       nav {
         gap: 1rem;
+      }
+
+      ol.programme > li {
+        grid-template-columns: 1fr;
+      }
+
+      ol.talks li {
+        grid-template-columns: 1fr;
+        padding: 0.45rem 0;
+      }
+
+      .talk-type {
+        display: inline;
+        margin-left: 0.4rem;
       }
 
       ul.dates li {
@@ -340,6 +462,7 @@
       WaC-13 · EMNLP 2026
     </a>
     <a href="#about">About</a>
+    <a href="#programme">Programme</a>
     <a href="#topics">Topics</a>
     <a href="#dates">Dates</a>
     <a href="#submission">Submission</a>
@@ -358,7 +481,7 @@
   </figure>
 
   <h1>13th Web-as-Corpus Workshop</h1>
-  <p class="subtitle">Workshop @ EMNLP 2026 · Budapest, Hungary · 29 October 2026</p>
+  <p class="subtitle">Workshop @ EMNLP 2026 · Budapest, Hungary · 29 October 2026 · Room G6</p>
 
   <section id="about">
     <p>The 13th edition of the Web-as-Corpus (WaC-13) workshop will be co-located with <a href="https://2026.emnlp.org/"
@@ -404,6 +527,166 @@
     <p>WaC-13 provides a multidisciplinary forum for research addressing the full lifecycle of web data. We invite
       submissions on methods, resources, and applications related to web corpora, with special emphasis on multilingual
       data and less-resourced languages.</p>
+  </section>
+
+  <section id="programme">
+    <h2>Programme</h2>
+    <p class="prog-note">Thursday 29 October 2026 · Room G6 · All times are Budapest local time (CET, UTC+1)</p>
+
+    <ol class="programme">
+      <li>
+        <span class="prog-time">09:00–09:15</span>
+        <div><span class="prog-title">Opening</span></div>
+      </li>
+      <li>
+        <span class="prog-time">09:15–10:30</span>
+        <div>
+          <span class="prog-title">Keynote</span>
+          <div class="prog-detail"><em>The Web as a Corpus and Common Crawl: A look back, forward and into present
+              challenges</em><br />Sebastian Nagel, Common Crawl Foundation</div>
+        </div>
+      </li>
+      <li class="break">
+        <span class="prog-time">10:30–11:00</span>
+        <div><span class="prog-title">Coffee break</span></div>
+      </li>
+      <li>
+        <span class="prog-time">11:00–12:30</span>
+        <div>
+          <span class="prog-title">Oral session 1</span>
+          <ol class="talks">
+            <li>
+              <span class="talk-meta">11:00–11:20<span class="talk-type">Long oral</span></span>
+              <span>Wiktionary as a Crowdsourced Lexicon for English Dialects<span class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">11:20–11:40<span class="talk-type">Long oral</span></span>
+              <span>Host-Aware Web Crawling for LLM Pretraining Data</span>
+            </li>
+            <li>
+              <span class="talk-meta">11:40–11:55<span class="talk-type">Short oral</span></span>
+              <span>CHALIS: A Challenge Dataset for Language Identification in Difficult Scenarios</span>
+            </li>
+            <li>
+              <span class="talk-meta">11:55–12:10<span class="talk-type">Short oral</span></span>
+              <span>You Can Tell Who’s Asking: What the Web’s Questions Are Made Of, and Who Made Them<span
+                  class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">12:10–12:30<span class="talk-type">Long oral</span></span>
+              <span>Segment-Level Register Analysis of the Multilingual Web</span>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li class="break">
+        <span class="prog-time">12:30–13:30</span>
+        <div><span class="prog-title">Lunch break</span></div>
+      </li>
+      <li>
+        <span class="prog-time">13:30–14:00</span>
+        <div>
+          <span class="prog-title">Virtual poster presentations</span>
+          <ol class="talks">
+            <li>
+              <span class="talk-meta">13:30–13:35<span class="talk-type">Lightning talk</span></span>
+              <span>Who Published This Headline? Editorial Fingerprinting in French News Under Topic Control<span
+                  class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">13:35–13:40<span class="talk-type">Recorded talk</span></span>
+              <span>How Many Duplicates Are Left? Capture-Recapture and Sampling Inversion for Residual Duplication in
+                FineWeb</span>
+            </li>
+            <li>
+              <span class="talk-meta">13:40–13:45<span class="talk-type">Lightning talk</span></span>
+              <span>Auditing Source Exposure in Baidu and Google AI Search<span class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">13:45–13:50<span class="talk-type">Recorded talk</span></span>
+              <span>Same Pages, Cleaner Labels: Language Identification for Eight Low-Resource Languages in mC4 and
+                FineWeb-2</span>
+            </li>
+            <li>
+              <span class="talk-meta">13:50–13:55<span class="talk-type">Lightning talk</span></span>
+              <span>Extraction Changes the Route: Main-Content Extraction and Language Identification in Web Corpora<span
+                  class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">13:55–14:00<span class="talk-type">Lightning talk</span></span>
+              <span>WiNCC: A Reproducible Pipeline for Constructing a Wikipedia-enriched Nepali Cross-lingual
+                Corpus<span class="tag-remote">remote</span></span>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <span class="prog-time">14:00–15:30</span>
+        <div>
+          <span class="prog-title">In-person poster session</span>
+          <details class="poster-list" open>
+            <summary>16 posters</summary>
+            <ul class="posters">
+              <li>A curated web-derived corpus of infant crying: Taxonomy, annotation, and ethical issues</li>
+              <li>A Taxonomy of Programming Languages for Code Generation</li>
+              <li>Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2</li>
+              <li>CeyNews: A Sri Lankan Trilingual News Corpus</li>
+              <li>Counting Documents Is Not Counting Text: Unit Bias in Web-PDF Corpus Statistics</li>
+              <li>Is educational content enough? The linguistic and thematic effects of educational filtering</li>
+              <li>Keeping the Ums: Conversation-Analysis-Informed Verbatim ASR for Web Speech</li>
+              <li>Mapping Sámi languages in a Norwegian national web crawl: results from a representativeness study</li>
+              <li>PAWN++ in the Wild: Evaluating AI-Generated Text Detection on the Web</li>
+              <li>Probing Pretraining “Quality”: Sociolinguistic Mobility as a Lens on Web Corpus Filters</li>
+              <li>Task-Agnostic Web Document Annotation with LLM-Generated Descriptors</li>
+              <li>The Crawl Gap: Where Endangered-Language Web Content Is Lost Before It Reaches a Corpus</li>
+              <li>The CreateDebate Arguments Dataset: A Large-Scale Naturalistic Corpus for Computational Argumentation
+              </li>
+              <li>Towards more reliable Web metadata: Do register classifiers learn register or genre features?</li>
+              <li>Using search engines to trace metalinguistic discussions of the noun “female” in digital discourse</li>
+              <li>What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+      <li class="break">
+        <span class="prog-time">15:30–16:00</span>
+        <div><span class="prog-title">Coffee break</span></div>
+      </li>
+      <li>
+        <span class="prog-time">16:00–17:00</span>
+        <div>
+          <span class="prog-title">Oral session 2</span>
+          <ol class="talks">
+            <li>
+              <span class="talk-meta">16:00–16:20<span class="talk-type">Long oral</span></span>
+              <span>RefinedGAW: A Refined German Academic Web Dataset</span>
+            </li>
+            <li>
+              <span class="talk-meta">16:20–16:35<span class="talk-type">Short oral</span></span>
+              <span>Invisible on the Web: An Audit of Low-Resource Muskogean Languages in Web-Crawled Corpora</span>
+            </li>
+            <li>
+              <span class="talk-meta">16:35–16:50<span class="talk-type">Short oral</span></span>
+              <span>HPLT3-PerRef: A Refined Large-Scale Persian Web Corpus via Supervised Document Quality
+                Filtering</span>
+            </li>
+            <li>
+              <span class="talk-meta">16:50–16:55<span class="talk-type">Lightning talk</span></span>
+              <span>Lost in Translation: Structured-Span Corruption in Machine-Translated Multilingual Web Corpora<span
+                  class="tag-remote">remote</span></span>
+            </li>
+            <li>
+              <span class="talk-meta">16:55–17:00<span class="talk-type">Recorded talk</span></span>
+              <span>Whose Robots.txt? Consent-Infrastructure Inequality Across the Languages of Web Corpora</span>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <span class="prog-time">17:00–17:15</span>
+        <div><span class="prog-title">Best paper award &amp; wrap-up</span></div>
+      </li>
+    </ol>
   </section>
 
   <section id="topics">
@@ -455,7 +738,7 @@
           </li>
           <li>
             <span class="date-label">Workshop</span>
-            <span class="date-val webDelta">2026-10-29T09:00+02:00</span>
+            <span class="date-val webDelta">2026-10-29T09:00+01:00</span>
           </li>
           <li>
             <span class="date-label"></span>
