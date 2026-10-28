@@ -406,6 +406,41 @@
       vertical-align: 1px;
     }
 
+    .proceedings {
+      margin-bottom: 0.4rem;
+    }
+
+    a.paper-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: #c9dcf2;
+      text-underline-offset: 2px;
+    }
+
+    a.paper-link:hover {
+      color: #1a6bc4;
+      text-decoration-color: currentColor;
+    }
+
+    .paper-authors {
+      display: block;
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .tag-nonarchival {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: #c25e00;
+      border: 1px solid #f5cfa8;
+      border-radius: 3px;
+      padding: 0 0.3rem;
+      margin-left: 0.35rem;
+      white-space: nowrap;
+      vertical-align: 1px;
+    }
+
     ul.posters {
       margin: 0.5rem 0 0 0;
       padding-left: 1.2rem;
@@ -531,6 +566,7 @@
 
   <section id="programme">
     <h2>Programme</h2>
+    <p class="proceedings">Papers are published in the <a href="https://aclanthology.org/volumes/2026.wac-1/" target="_blank" rel="noopener">Proceedings of the 13th Web-as-Corpus Workshop</a> on the ACL Anthology (<a href="https://aclanthology.org/2026.wac-1.pdf" target="_blank" rel="noopener">full volume PDF</a>).</p>
     <p class="prog-note">Thursday 29 October 2026 · Room G6 · All times are Budapest local time (CET, UTC+1)</p>
 
     <ol class="programme">
@@ -557,24 +593,23 @@
           <ol class="talks">
             <li>
               <span class="talk-meta">11:00–11:20<span class="talk-type">Long oral</span></span>
-              <span>Wiktionary as a Crowdsourced Lexicon for English Dialects<span class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.23/" target="_blank" rel="noopener">Wiktionary as a Crowdsourced Lexicon for English Dialects</a><span class="tag-remote">remote</span><span class="paper-authors">Sidney Wong</span></span>
             </li>
             <li>
               <span class="talk-meta">11:20–11:40<span class="talk-type">Long oral</span></span>
-              <span>Host-Aware Web Crawling for LLM Pretraining Data</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.7/" target="_blank" rel="noopener">Host-Aware Web Crawling for LLM Pretraining Data</a><span class="paper-authors">Malte Ostendorff</span></span>
             </li>
             <li>
               <span class="talk-meta">11:40–11:55<span class="talk-type">Short oral</span></span>
-              <span>CHALIS: A Challenge Dataset for Language Identification in Difficult Scenarios</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.1/" target="_blank" rel="noopener">CHALIS: A Challenge Dataset for Language Identification in Difficult Scenarios</a><span class="paper-authors">Michal Tichý and Jindřich Libovický</span></span>
             </li>
             <li>
               <span class="talk-meta">11:55–12:10<span class="talk-type">Short oral</span></span>
-              <span>You Can Tell Who’s Asking: What the Web’s Questions Are Made Of, and Who Made Them<span
-                  class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.22/" target="_blank" rel="noopener">You Can Tell Who’s Asking: What the Web’s Questions Are Made Of, and Where They Come From</a><span class="tag-remote">remote</span><span class="paper-authors">Calvin Zhou, Vincent McCloskey and Krishna Srinivasan</span></span>
             </li>
             <li>
               <span class="talk-meta">12:10–12:30<span class="talk-type">Long oral</span></span>
-              <span>Segment-Level Register Analysis of the Multilingual Web</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.19/" target="_blank" rel="noopener">Segment-Level Register Analysis of the Multilingual Web</a><span class="paper-authors">Erik Henriksson, Alireza Razzaghi, Tomasz Galica, Jiaqi Feng Guo, Anastasia Zhi-Ling Dong, Urho Kunnas, Erofili Psaltaki, Tuomas Lundberg, Antti Kanner and Veronika Laippala</span></span>
             </li>
           </ol>
         </div>
@@ -590,32 +625,27 @@
           <ol class="talks">
             <li>
               <span class="talk-meta">13:30–13:35<span class="talk-type">Lightning talk</span></span>
-              <span>Who Published This Headline? Editorial Fingerprinting in French News Under Topic Control<span
-                  class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.3/" target="_blank" rel="noopener">Who Published This Headline? Editorial Fingerprinting in French News Under Topic Control</a><span class="tag-remote">remote</span><span class="paper-authors">Amr Sobhy</span></span>
             </li>
             <li>
               <span class="talk-meta">13:35–13:40<span class="talk-type">Recorded talk</span></span>
-              <span>How Many Duplicates Are Left? Capture-Recapture and Sampling Inversion for Residual Duplication in
-                FineWeb</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.16/" target="_blank" rel="noopener">How Many Duplicates Are Left? Capture-Recapture and Sampling Inversion for Residual Duplication in FineWeb</a><span class="paper-authors">Gary Zhang</span></span>
             </li>
             <li>
               <span class="talk-meta">13:40–13:45<span class="talk-type">Lightning talk</span></span>
-              <span>Auditing Source Exposure in Baidu and Google AI Search<span class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.8/" target="_blank" rel="noopener">Auditing Source Exposure in Baidu and Google AI Search</a><span class="tag-remote">remote</span><span class="paper-authors">Yibo Li, Enci Guan, Yuedan Cai, Geng Liu and Francesco Pierri</span></span>
             </li>
             <li>
               <span class="talk-meta">13:45–13:50<span class="talk-type">Recorded talk</span></span>
-              <span>Same Pages, Cleaner Labels: Language Identification for Eight Low-Resource Languages in mC4 and
-                FineWeb-2</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.15/" target="_blank" rel="noopener">Same Pages, Cleaner Labels: Language Identification for Eight Low-Resource Languages in mC4 and FineWeb-2</a><span class="paper-authors">Gary Zhang</span></span>
             </li>
             <li>
               <span class="talk-meta">13:50–13:55<span class="talk-type">Lightning talk</span></span>
-              <span>Extraction Changes the Route: Main-Content Extraction and Language Identification in Web Corpora<span
-                  class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.26/" target="_blank" rel="noopener">Extraction Changes the Route: Main-Content Extraction and Language Identification in Web Corpora</a><span class="tag-remote">remote</span><span class="paper-authors">Toprak Seda Karaosmanoğlu</span></span>
             </li>
             <li>
               <span class="talk-meta">13:55–14:00<span class="talk-type">Lightning talk</span></span>
-              <span>WiNCC: A Reproducible Pipeline for Constructing a Wikipedia-enriched Nepali Cross-lingual
-                Corpus<span class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.12/" target="_blank" rel="noopener">WiNCC: A Reproducible Pipeline for Constructing a Wikipedia-enriched Nepali Cross-lingual Corpus</a><span class="tag-remote">remote</span><span class="paper-authors">Ahrnish P Dahal, Pushkar Baranwal, Amit Pundir, Geetika Jain Saxena and Sanjeev Singh</span></span>
             </li>
           </ol>
         </div>
@@ -627,23 +657,22 @@
           <details class="poster-list" open>
             <summary>16 posters</summary>
             <ul class="posters">
-              <li>A curated web-derived corpus of infant crying: Taxonomy, annotation, and ethical issues</li>
-              <li>A Taxonomy of Programming Languages for Code Generation</li>
-              <li>Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2</li>
-              <li>CeyNews: A Sri Lankan Trilingual News Corpus</li>
-              <li>Counting Documents Is Not Counting Text: Unit Bias in Web-PDF Corpus Statistics</li>
-              <li>Is educational content enough? The linguistic and thematic effects of educational filtering</li>
-              <li>Keeping the Ums: Conversation-Analysis-Informed Verbatim ASR for Web Speech</li>
-              <li>Mapping Sámi languages in a Norwegian national web crawl: results from a representativeness study</li>
-              <li>PAWN++ in the Wild: Evaluating AI-Generated Text Detection on the Web</li>
-              <li>Probing Pretraining “Quality”: Sociolinguistic Mobility as a Lens on Web Corpus Filters</li>
-              <li>Task-Agnostic Web Document Annotation with LLM-Generated Descriptors</li>
-              <li>The Crawl Gap: Where Endangered-Language Web Content Is Lost Before It Reaches a Corpus</li>
-              <li>The CreateDebate Arguments Dataset: A Large-Scale Naturalistic Corpus for Computational Argumentation
-              </li>
-              <li>Towards more reliable Web metadata: Do register classifiers learn register or genre features?</li>
-              <li>Using search engines to trace metalinguistic discussions of the noun “female” in digital discourse</li>
-              <li>What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora</li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.29/" target="_blank" rel="noopener">A Web-Derived Typology of Multimodal Infant Crying: Taxonomy, a Text-Only Web-Corpus Comparison, and Ethical Issues</a><span class="paper-authors">Jacob Rigal and Jonathan Ginzburg</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.4/" target="_blank" rel="noopener">A Taxonomy of Programming Languages for Code Generation</a><span class="paper-authors">Nishat Raihan, Christian Newman and Marcos Zampieri</span></li>
+              <li>Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2<span class="tag-nonarchival">non-archival</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.27/" target="_blank" rel="noopener">CeyNews: A Sri Lankan Trilingual News Corpus</a><span class="paper-authors">Ajintha Sivakulasingam, Kengatharaiyer Sarveswaran and Tharindu Ranasinghe</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.10/" target="_blank" rel="noopener">Counting Documents Is Not Counting Text: Unit Bias in Web-PDF Corpus Statistics</a><span class="paper-authors">Luca Foppiano</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.11/" target="_blank" rel="noopener">Is Educational Content Enough? The Linguistic and Thematic Effects of Educational Filtering</a><span class="paper-authors">Urho Kunnas, Veronika Laippala, Sampo Pyysalo and Tomasz Galica</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.18/" target="_blank" rel="noopener">Keeping the Ums: Conversation-Analysis-Informed Verbatim ASR for Web Speech</a><span class="paper-authors">Steven Coats</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.13/" target="_blank" rel="noopener">Mapping Sámi Languages in a Norwegian National Web Crawl: Results from a Representativeness Study</a><span class="paper-authors">Magnus Breder Birkenes</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.25/" target="_blank" rel="noopener">PAWN++ in the Wild: Evaluating AI-Generated Text Detection on the Web</a><span class="paper-authors">Oleg Chernikov, Evgenii Ptitsyn and Albina Burlova</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.28/" target="_blank" rel="noopener">Probing Pretraining “Quality”: Sociolinguistic Mobility as a Lens on Web Corpus Filters</a><span class="paper-authors">Jessica Wang</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.24/" target="_blank" rel="noopener">Task-Agnostic Web Document Annotation with LLM-Generated Descriptors</a><span class="paper-authors">Otto Tarkka, Erik Henriksson, Jenna Kanerva and Filip Ginter</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.21/" target="_blank" rel="noopener">The Crawl Gap: Where Endangered-Language Web Content Is Lost Before It Reaches a Corpus</a><span class="paper-authors">Sharvin Goyal</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.2/" target="_blank" rel="noopener">The CreateDebate Arguments Dataset: A Large-Scale Naturalistic Corpus for Computational Argumentation</a><span class="paper-authors">Antonis Charalampous and Constantinos Djouvas</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.14/" target="_blank" rel="noopener">Towards More Reliable Web Metadata: Do Register Classifiers Learn Register or Genre Features?</a><span class="paper-authors">Antti Kanner, Tuomas Lundberg, Erik Henriksson and Veronika Laippala</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.17/" target="_blank" rel="noopener">Using Search Engines to Trace Metalinguistic Discussions of the Noun “Female” in Digital Discourse</a><span class="paper-authors">Marie Flesch</span></li>
+              <li><a class="paper-link" href="https://aclanthology.org/2026.wac-1.5/" target="_blank" rel="noopener">What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora</a><span class="paper-authors">Nikola Ljubešić, Vuk Dinić and Peter Rupnik</span></li>
             </ul>
           </details>
         </div>
@@ -659,25 +688,23 @@
           <ol class="talks">
             <li>
               <span class="talk-meta">16:00–16:20<span class="talk-type">Long oral</span></span>
-              <span>RefinedGAW: A Refined German Academic Web Dataset</span>
+              <span>RefinedGAW: A Refined German Academic Web Dataset<span class="tag-nonarchival">non-archival</span></span>
             </li>
             <li>
               <span class="talk-meta">16:20–16:35<span class="talk-type">Short oral</span></span>
-              <span>Invisible on the Web: An Audit of Low-Resource Muskogean Languages in Web-Crawled Corpora</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.20/" target="_blank" rel="noopener">Invisible on the Web: An Audit of Low-Resource Muskogean Languages in Web-Crawled Corpora</a><span class="paper-authors">Sharvin Goyal</span></span>
             </li>
             <li>
               <span class="talk-meta">16:35–16:50<span class="talk-type">Short oral</span></span>
-              <span>HPLT3-PerRef: A Refined Large-Scale Persian Web Corpus via Supervised Document Quality
-                Filtering</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.6/" target="_blank" rel="noopener">HPLT3-PerRef: A Refined Large-Scale Persian Web Corpus via Supervised Document Quality Filtering</a><span class="paper-authors">Alireza Razzaghi, Tomasz Galica, Erik Henriksson and Veronika Laippala</span></span>
             </li>
             <li>
               <span class="talk-meta">16:50–16:55<span class="talk-type">Lightning talk</span></span>
-              <span>Lost in Translation: Structured-Span Corruption in Machine-Translated Multilingual Web Corpora<span
-                  class="tag-remote">remote</span></span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.9/" target="_blank" rel="noopener">Lost in Translation: Structured-Span Corruption in Machine-Translated Multilingual Web Corpora</a><span class="tag-remote">remote</span><span class="paper-authors">Ruiyang Zhang</span></span>
             </li>
             <li>
               <span class="talk-meta">16:55–17:00<span class="talk-type">Recorded talk</span></span>
-              <span>Whose Robots.txt? Consent-Infrastructure Inequality Across the Languages of Web Corpora</span>
+              <span><a class="paper-link" href="https://aclanthology.org/2026.wac-1.30/" target="_blank" rel="noopener">Whose Robots.txt? Consent-Infrastructure Inequality Across the Languages of Web Corpora</a><span class="paper-authors">Gary Zhang and Austin Cheng</span></span>
             </li>
           </ol>
         </div>
